@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 16:30:27 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/13 14:19:35 by pvong            ###   ########.fr       */
+/*   Created: 2023/11/13 14:32:38 by pvong             #+#    #+#             */
+/*   Updated: 2023/11/13 15:37:52 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 
 class ClapTrap {
 
-private:
+protected:
     std::string _name;
     unsigned int _hp;
     unsigned int _maxHp;
@@ -69,6 +69,7 @@ public:
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int anount);
+    std::string getName(void);
     unsigned int getAtk(void);
     unsigned int getHp(void);
 };

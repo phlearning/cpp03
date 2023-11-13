@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 16:30:22 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/13 14:30:01 by pvong            ###   ########.fr       */
+/*   Created: 2023/11/13 14:32:44 by pvong             #+#    #+#             */
+/*   Updated: 2023/11/13 15:05:05 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-ClapTrap::ClapTrap(void) : _name("DEFAULT_NAME"), _hp(10), _ep(10), _atk(0) {
+ClapTrap::ClapTrap(void) : _name("DEFAULT_NAME"), _hp(100), _ep(50), _atk(20) {
 
     if (SHOWMSG) {
         std::cout << GREEN << "Default constructor called." << RESET << std::endl;
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(void) : _name("DEFAULT_NAME"), _hp(10), _ep(10), _atk(0) {
     this->_maxHp = this->_hp;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _ep(10), _atk(0) {
+ClapTrap::ClapTrap(std::string name) : _name(name), _hp(100), _ep(50), _atk(20) {
 
     if (SHOWMSG) {
         std::cout << "My constructor called: " << COLOR(name, GREEN) << std::endl;
@@ -102,6 +102,10 @@ void ClapTrap::beRepaired(unsigned int amount) {
     } else {
         std::cout << COLOR(this->_name, CYAN) << " is already " << COLOR("fulled hp", CYAN) << ". No repair needed." << std::endl;
     }
+}
+
+std::string ClapTrap::getName(void) {
+    return (this->_name);
 }
 
 unsigned int ClapTrap::getAtk(void) {

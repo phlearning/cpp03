@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/10 16:29:01 by pvong             #+#    #+#              #
-#    Updated: 2023/11/13 11:14:15 by pvong            ###   ########.fr        #
+#    Created: 2023/11/13 15:53:17 by pvong             #+#    #+#              #
+#    Updated: 2023/11/13 15:53:19 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = clapTrap
+NAME = scavTrap
 
 # Compilation 
 CXX = g++
@@ -27,6 +27,7 @@ OBJ_DIR = obj
 
 SRC = ClapTrap.cpp \
 		main.cpp \
+		ScavTrap.cpp 
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
