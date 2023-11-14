@@ -6,11 +6,11 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:53:01 by pvong             #+#    #+#              #
-#    Updated: 2023/11/14 14:21:00 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/14 17:18:58 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = DiamondTrap
+NAME = diamondTrap
 
 # Compilation 
 CXX = g++
