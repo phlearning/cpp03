@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:59:24 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/13 16:55:56 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/14 17:04:49 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,25 @@
 
 FragTrap::FragTrap(void) {
 
+    this->_hp = 100;
+    this->_ep = 100;
+    this->_atk = 30;
+    this->_myHp = this->_hp;
+    this->_myEp = this->_ep;
+    this->_myAtk = this->_atk;
     if (SHOWMSG) {
         std::cout << "FragTrap default constructor called: " << COLOR(this->_name, GREEN) << std::endl;
     }    
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30) {
+FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 
+    this->_hp = 100;
+    this->_ep = 100;
+    this->_atk = 30;
+    this->_myHp = this->_hp;
+    this->_myEp = this->_ep;
+    this->_myAtk = this->_atk;
     if (SHOWMSG) {
         std::cout << "My " << COLOR("FragTrap", BOLDGREEN) << " constructor called: " << COLOR(name, GREEN) << " {";
         displayStats(false);
@@ -30,12 +42,32 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30) {
     }
 }
 
+FragTrap::FragTrap(FragTrap const &src) : ClapTrap(src) {
+
+    this->_myHp = this->_hp;
+    this->_myEp = this->_ep;
+    this->_myAtk = this->_atk;
+    if (SHOWMSG) {
+        std::cout << GREEN << "FragTrap copy constructor called." << RESET << " {";
+        displayStats(false);
+        std::cout << "}" << std::endl;
+    }
+}
+
 FragTrap &FragTrap::operator=(FragTrap const &other) {
 
+    this->_name = other._name;
+    this->_hp = other._hp;
+    this->_ep = other._ep;
+    this->_atk = other._atk;
+    this->_myHp = this->_hp;
+    this->_myEp = this->_ep;
+    this->_myAtk = this->_atk;
     if (SHOWMSG) {
-        std::cout << GREEN << "ScavTrap Copy assignment operator called." << RESET << std::endl;
+        std::cout << GREEN << "FragTrap Copy assignment operator called." << RESET << " {";
+        displayStats(false);
+        std::cout << "}" << std::endl;
     }
-    ClapTrap::operator=(other);
     return (*this);
 }
 
@@ -53,6 +85,10 @@ void FragTrap::highFivesGuys(void) {
 
 void FragTrap::attack(const std::string &target) {
 
+    if (this->_hp == 0) {
+        std::cout << "FragTrap " << COLOR(this->_name, CYAN) << " is " << COLOR("dead.", CYAN) << " He cannot move or attack." << std::endl;
+        return ;
+    }
     if (this->_ep > 0) {
         std::cout << "FragTrap " << COLOR(this->_name, CYAN) << " attacks " << COLOR(target, CYAN) << ", causing " << COLOR(this->_atk, CYAN) << " points of damage!" << std::endl;
         this->_ep -= 1;

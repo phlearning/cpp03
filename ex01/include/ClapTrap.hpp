@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:32:38 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/13 15:37:52 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:29:28 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ public:
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int anount);
+    void displayStats(bool newline);
     std::string getName(void);
     unsigned int getAtk(void);
     unsigned int getHp(void);

@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:52:40 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/13 15:52:43 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/14 17:03:19 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@
 #include "ClapTrap.hpp"
 #include <string>
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
 private:
     bool _guard;
+
+protected:
+   unsigned int _myHp;
+   unsigned int _myMaxHp;
+   unsigned int _myEp;
+   unsigned int _myAtk;
 
 public:
     ScavTrap(void);

@@ -6,11 +6,11 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:53:01 by pvong             #+#    #+#              #
-#    Updated: 2023/11/13 16:32:38 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/14 13:44:24 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavTrap
+NAME = fragTrap
 
 # Compilation 
 CXX = g++

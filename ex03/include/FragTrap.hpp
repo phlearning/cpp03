@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:56:18 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/13 16:55:27 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/14 17:05:31 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@
 #include "ClapTrap.hpp"
 #include <string>
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
+
+protected:
+    unsigned int _myHp;
+    unsigned int _myMaxHp;
+    unsigned int _myEp;
+    unsigned int _myAtk;
 
 public:
     FragTrap(void);

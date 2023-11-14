@@ -6,11 +6,11 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:53:01 by pvong             #+#    #+#              #
-#    Updated: 2023/11/13 16:32:38 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/14 14:21:00 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavTrap
+NAME = DiamondTrap
 
 # Compilation 
 CXX = g++
@@ -28,7 +28,8 @@ OBJ_DIR = obj
 SRC = ClapTrap.cpp \
 		main.cpp \
 		ScavTrap.cpp \
-		FragTrap.cpp
+		FragTrap.cpp \
+		DiamondTrap.cpp 
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))

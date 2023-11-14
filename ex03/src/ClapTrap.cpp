@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:52:47 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/13 16:50:17 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:41:58 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-ClapTrap::ClapTrap(void) : _name("DEFAULT_NAME"), _hp(100), _ep(50), _atk(20) {
+ClapTrap::ClapTrap(void) : _name("DEFAULT_NAME"), _hp(10), _ep(10), _atk(0) {
 
     if (SHOWMSG) {
         std::cout << GREEN << "ClapTrap default constructor called." << RESET << std::endl;
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned 
     this->_maxHp = this->_hp;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(100), _ep(50), _atk(20) {
+ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _ep(10), _atk(0) {
 
     if (SHOWMSG) {
         std::cout << "My " << COLOR("ClapTrap", GREEN) << " constructor called: " << COLOR(name, GREEN) << std::endl;
@@ -48,14 +48,14 @@ ClapTrap::~ClapTrap(void) {
 ClapTrap::ClapTrap(ClapTrap const &src) : _name(src._name), _hp(src._hp), _maxHp(src._maxHp), _ep(src._ep), _atk(src._atk) {
 
     if (SHOWMSG) {
-        std::cout << GREEN << "Copy constructor called." << std::endl;
+        std::cout << GREEN << "ClapTrap copy constructor called." << std::endl;
     }
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other) {
 
     if (SHOWMSG) {
-        std::cout << GREEN << "Copy assignment operator called." << RESET << std::endl;
+        std::cout << GREEN << "ClapTrap copy assignment operator called." << RESET << std::endl;
     }
     this->_name = other._name;
     this->_hp = other._hp;
@@ -67,6 +67,10 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &other) {
 
 void ClapTrap::attack(const std::string &target) {
 
+    if (this->_hp == 0) {
+        std::cout << "ClapTrap " << COLOR(this->_name, CYAN) << " is " << COLOR("dead.", CYAN) << " He cannot move or attack." << std::endl;
+        return ;
+    }
     if (this->_ep > 0) {
         std::cout << "ClapTrap " << COLOR(this->_name, CYAN) << " attacks " << COLOR(target, CYAN) << ", causing " << COLOR(this->_atk, CYAN) << " points of damage!" << std::endl;
         this->_ep -= 1;
